@@ -99,7 +99,7 @@ if __name__ == '__main__':
             logging.debug(zug)
 
             # Eingabe prüfen
-            if len(zug) < 2: #FIXME Länge 1 reicht aus, wenn q oder Q eingegeben wurde
+            if len(zug) < 2: #FIXME #1 Länge 1 reicht aus, wenn q oder Q eingegeben wurde
                 logging.warning('Eingabe zu kurz: %s Zeichen, muss 2 Ziffern 0-2 sein', len(zug))
                 continue
 
