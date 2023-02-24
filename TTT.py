@@ -1,5 +1,6 @@
 """Einfaches TikTakToe für die Kommandozeile"""
 
+import sys
 import logging
 
 #################################
@@ -31,32 +32,42 @@ def ist_fertig(feld):
 
     # senkrecht
     if feld[ix(0, 0)] == feld[ix(0, 1)] == feld[ix(0, 2)] and feld[ix(0, 0)] in ['X', 'O']:
+        logging.info('3er-Reihe %s','00-01-02')
         return True
     if feld[ix(1, 0)] == feld[ix(1, 1)] == feld[ix(1, 2)] and feld[ix(1, 0)] in ['X', 'O']:
+        logging.info('3er-Reihe %s','10-11-12')
         return True
     if feld[ix(2, 0)] == feld[ix(2, 1)] == feld[ix(2, 2)] and feld[ix(2, 0)] in ['X', 'O']:
+        logging.info('3er-Reihe %s','20-21-22')
         return True
 
     # waagrecht
     if feld[ix(0, 0)] == feld[ix(1, 0)] == feld[ix(2, 0)] and feld[ix(0, 0)] in ['X', 'O']:
+        logging.info('3er-Reihe %s','00-10-20')
         return True
     if feld[ix(0, 1)] == feld[ix(1, 1)] == feld[ix(2, 1)] and feld[ix(0, 1)] in ['X', 'O']:
+        logging.info('3er-Reihe %s','01-11-21')
         return True
     if feld[ix(0, 2)] == feld[ix(1, 2)] == feld[ix(2, 2)] and feld[ix(0, 2)] in ['X', 'O']:
+        logging.info('3er-Reihe %s','02-12-22')
         return True
 
     # diagonal
     if feld[ix(0, 0)] == feld[ix(1, 1)] == feld[ix(2, 2)] and feld[ix(0, 0)] in ['X', 'O']:
+        logging.info('3er-Reihe %s','00-11-22')
         return True
     if feld[ix(0, 2)] == feld[ix(2, 0)] == feld[ix(1, 1)] and feld[ix(1, 1)] in ['X', 'O']:
+        logging.info('3er-Reihe %s','02-11-20')
         return True
 
     # noch nicht alle Felder voll
     for i in range(0,9):
         if feld[i] == '.':
+            logging.info('kein Gewinner, kein Unentschieden')
             return False
 
     # nix davon, also alle Felder voll und keine 3er-Reihe
+    logging.info('Unentschieden festgestellt')
     return 'draw'
 
 def check_input(inp):
@@ -82,12 +93,19 @@ def naechster(spieler):
 ##################################
 if __name__ == '__main__':
 
-    # logging.basicConfig(level = logging.DEBUG)
+    for arg in sys.argv:
+        if arg == '-i':
+            logging.basicConfig(level = logging.INFO)
+        if arg == '-d':
+            logging.basicConfig(level = logging.DEBUG)
 
+    logging.info('Initialisierung...')
     fertig = False
     zug = ''
     spieler = 'X'
     spielfeld = spielanfang()
+    logging.info('...Initialisierung abgeschlossen')
+
 
     while not fertig:
 
