@@ -5,18 +5,11 @@ def print_grid(status):
     for i in [0,3,6]:
             print(status[i],'|',status[i+1],'|',status[i+2])
             
-def spielanfang():
-    status = []
-    for i in range(0,9):
-        status.append('.')
-    return status
-
 
 fertig = False
 zug = ''
 spieler = 'X'
-spielfeld = []
-spielfeld = spielanfang()
+spielfeld = ['.', '.', '.', '.', '.', '.', '.', '.', '.']
     
 while(fertig == False):
 
