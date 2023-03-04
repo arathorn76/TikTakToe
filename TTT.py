@@ -146,3 +146,7 @@ if __name__ == '__main__':
         spieler = naechster(spieler)
 
     print_grid(spielfeld)
+
+#TODO #3 Neustart anbieben, wenn Spiel zu Ende ist^
+
+#TODO #4 Restrukturierung
