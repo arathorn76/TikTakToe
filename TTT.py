@@ -93,17 +93,18 @@ def naechster(spieler):
 ##################################
 if __name__ == '__main__':
 
+    # Initialisierung des Programms
+    #   Logging Level hat Standardwert "WARNING"
     for arg in sys.argv:
         if arg == '-i':
             logging.basicConfig(level = logging.INFO)
         if arg == '-d':
             logging.basicConfig(level = logging.DEBUG)
-
     logging.info('Initialisierung...')
-    fertig = False
-    zug = ''
-    spieler = 'X'
-    spielfeld = spielanfang()
+    fertig = False              # Zustand des Spiels
+    zug = ''                    # Variable für Input
+    spieler = 'X'               # Variable für aktiven Spieler
+    spielfeld = spielanfang()   # ein leeres Spielfeld
     logging.info('...Initialisierung abgeschlossen')
 
 

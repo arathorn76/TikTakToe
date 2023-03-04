@@ -11,7 +11,7 @@ def spielanfang():
         status.append('.')
     return status
 
-if __name__ == '__main__':
+if __name__ == '__main__': # eine Python-Besonderheit; hier unnötig aber eine gute Gewohnheit
     fertig = False
     zug = ''
     spieler = 'X'
