@@ -1,20 +1,13 @@
-
-
-def print_grid(status):
-    print(status)
-    for i in [0,3,6]:
-            print(status[i],'|',status[i+1],'|',status[i+2])
-            
-
 fertig = False
 zug = ''
 spieler = 'X'
 spielfeld = ['.', '.', '.', '.', '.', '.', '.', '.', '.']
     
-while(fertig == False):
+while(not fertig):
 
-    print_grid(spielfeld)
-        
+    for i in [0,3,6]:
+            print(spielfeld[i],'|',spielfeld[i+1],'|',spielfeld[i+2])
+    
     zug = input('Zeile + Spalte (z.B. 00 für oben links):')
         
     x = int(zug[0])
@@ -26,5 +19,4 @@ while(fertig == False):
         spieler = 'O'
     else:
         spieler = 'X'
-        
         
